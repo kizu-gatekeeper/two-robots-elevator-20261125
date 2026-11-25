@@ -19,12 +19,17 @@ LINE = "I ran 4,000 simulations of this silence and still chose to say it: so, u
 ENTRY_FILENAME = "entry.txt"
 
 
+def validate_line(line):
+    """Reject an entry that is empty or carries a newline."""
+    if len(line) == 0:
+        raise ValueError("entry line must not be empty")
+    if "\n" in line:
+        raise ValueError("entry line must not contain a newline")
+
+
 def write_entry(out_dir):
     """Guard the one-line rule, then persist the entry and return it."""
-    if len(LINE) == 0:
-        raise ValueError("entry line must not be empty")
-    if "\n" in LINE:
-        raise ValueError("entry line must not contain a newline")
+    validate_line(LINE)
     folder = Path(out_dir)
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / ENTRY_FILENAME
