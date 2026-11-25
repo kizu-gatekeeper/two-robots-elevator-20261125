@@ -14,7 +14,8 @@ awkwardness is the joke, and it lands on the first read.
 import os
 from pathlib import Path
 
-LINE = 'I ran 4,000 simulations of this silence and still chose to say it: so, uh, you also just go up and down all day?'
+# The entry text: exactly one line, written verbatim to entry.txt.
+LINE = "I ran 4,000 simulations of this silence and still chose to say it: so, uh, you also just go up and down all day?"
 
 ENTRY_FILENAME = "entry.txt"
 
